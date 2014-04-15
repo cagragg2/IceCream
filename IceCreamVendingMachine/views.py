@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from IceCreamVendingMachine.models import IceCream
 from IceCreamVendingMachine.models import Stores
+from IceCreamVendingMachine.models import WhereOffAmounts
 
 # Create your views here.
 
@@ -35,12 +36,13 @@ def receipt(request, iceCreamID):
 	return render(request, 'IceCreamVendingMachine/receipt.html', context)
 	
 def storeAvailableList(request, iceCreamID):
-	all_items_in_store = IceCream.objects.filter(whereoff__stores = iceCreamID)
-	context = { 'all_items_in_store': all_items_in_store }
+	all_items_in_store = IceCream.objects.filter(whereoffamounts__stores = iceCreamID)
+	amount_of_items = WhereOffAmounts.objects.filter(stores = iceCreamID)
+	context = { 'all_items_in_store': all_items_in_store, 'amount_of_items': amount_of_items }
 	return render(request, 'IceCreamVendingMachine/storeAvailableList.html',context)
 
 def storeList(request, iceCreamID):
-	current_Stores = Stores.objects.filter(whereoff__icecream = iceCreamID)
+	current_Stores = Stores.objects.filter(whereoffamounts__icecream = iceCreamID)
 	context = { 'current_Stores': current_Stores }
 	return render(request, 'IceCreamVendingMachine/storeList.html', context)
 	

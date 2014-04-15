@@ -76,17 +76,19 @@
     <div id="back"><a href="/IceCreamVendingMachine/index.html">Login</a>  |  <a href="./request.html">Request</a></div>
 
 	<div class="container2" style="padding: 55px;">
-     		<h1>List of items in { object.storeName }</h1>
+     		<h1>List of items in {{ object.storeName }}</h1>
 		<br>
 		<!-- Below this line is dynamically created by Django -->
 	{% for object in all_items_in_store %}
 		<h3>
- <li><a href="/IceCreamVendingMachine/{{ object.iceCreamID }}/successBuy">{{ object.flavor }}</a></li>
+ <li><a href="/IceCreamVendingMachine/{{ object.iceCreamID }}/successBuy">{{ object.flavor }}</a> -------------- $</li>
 
 		</h3>
 		<br>
  		
 	{% endfor %}
+
+
    
     	</div><!-- container -->
 

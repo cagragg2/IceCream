@@ -39,5 +39,16 @@ class WhereOff(models.Model):
 	icecream = models.ForeignKey(IceCream)
 	snowcone = models.ForeignKey(SnowCone)
 	
-#	def __str__(self):
-#		return self.ID
+	def __str__(self):
+		return self.ID
+
+class WhereOffAmounts(models.Model):
+	ID = models.IntegerField(default=0)
+	ID.primary_key = True
+	stores = models.ForeignKey(Stores)
+	icecream = models.ForeignKey(IceCream)
+	quantity = models.IntegerField(default=0)
+	price = models.FloatField(default=0)
+
+	def __str__(self):
+		return self.icecream

@@ -17,7 +17,7 @@
 	<!-- Basic Page Needs
    ================================================== -->
 	<meta charset="utf-8">
-	<title>Ice Cream Machine | List of Items Available </title>
+	<title>Ice Cream Machine | List of Ice Cream </title>
     <link rel="shortcut icon" href="./images/favicon.ico"> 
 
 	<!-- Mobile Specific Metas
@@ -73,37 +73,22 @@
 	<!-- Delete everything in this .container and get started on your own site! -->
 
     <!-- Navagation -->
-    <div id="back"><a href="/IceCreamVendingMachine/index.html">Login</a>  |  <a href="./request.html">Request</a></div>
+    <div id="back"> <a href="./index.html">Login</a>  |  <a href="./request.html">Request</a></div>
 
 	<div class="container2" style="padding: 55px;">
-     		<h1>List of items in {{ object.storeName }}</h1>
+     		<h1>List of All Ice Creams and Snow Cones Available			</h1>
 		<br>
 		<!-- Below this line is dynamically created by Django -->
-	{% for object in all_items_in_store %}
-		<h3>
- <li><a href="/IceCreamVendingMachine/{{ object.iceCreamID }}/successBuy">{{ object.flavor }}</a> -------------- $</li>
 
-		</h3>
-		<br>
- 		
-	{% endfor %}
-
-
-
-<script type="text/javascript">
-<!--
-var count;
-document.write("Starting Loop" + "<br />");
-for(count = 0; count < 3; count++){
-  document.write(		<h3>
- <li><a href="/IceCreamVendingMachine/{ }/successBuy">{{ all_items_in_store[count].flavor }}</a> -------------- $</li>
-
-		</h3>);
-  document.write("<br />");
-}
-document.write("Loop stopped!");
-//-->
-</script>
+	{% if all_icecreams %}
+    <ul>
+    {% for ice_cream in all_icecreams %}
+        <li><a href="/IceCreamVendingMachine/{{ ice_cream.iceCreamID }}/storeList">{{ ice_cream.flavor }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No ice creams are available.</p>
+{% endif %}
    
     	</div><!-- container -->
 

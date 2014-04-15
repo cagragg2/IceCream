@@ -1,0 +1,53 @@
+
+User Stories
+
+1) - Feature: Log on Success
+	As a registered user
+	So that i can log into the Vending Machine, and get ice Cream
+	If i am at the log on page, with a valid user name "user" and the valid password "password".
+
+2) -Feature: Log on Failure
+	As a non-registered user
+	So that i am not logged into the Vending Machine, if I enter a valid username but an incorrect password or a valid password and invalid username.
+	This will direct me to the failureLogin page.
+
+3) -Feature: Buy Success
+	As a registered user
+	So that I am buying a correct amount of avaliable Ice Cream.
+	If I am at the storeAvaliableList and buy a Vanilla Ice Cream Cone that has the correct amount avaliable.
+
+4) -Feature: Buy Failure
+	As a registered user
+	So that I am trying to buy more Ice Cream than what is avaliable.
+	If I am at the storeAvaliableList, and am not able to buy 3 Vanilla Ice Cream Cones, when there is only 1 avaliable.
+
+5) - Feature: Display each item avaliable at selected Store
+	As a registered user
+	So that I am on the storeAvaliableList page, and can view avaliable items at that store
+	If I am at the storeAvaliableList page and I can see he list of items currently avaliable that can be bought from the selected store.
+
+6) -Feature: Display receipt
+	As a registered user
+	So that I get a receipt when I purchase an ice cream
+	After the Buy Success page I get a receipt of the ice cream amount purchased and price.
+
+7) -Feature: Display all ice creams
+	As a registered user
+	So that I can see all ice creams
+	If I am at the main screen after I log in all possible ice creams are listed
+
+8) -Feature: Select ice cream
+	As a registered user
+	So that I will be redirected to the stores
+	If I select an ice cream I will be redirected to stores having that ice cream
+
+9) -Feature: Display correct stores
+	As a registered user
+	So that I can see all stores assciated with the selected ice cream
+	If I choose an ice cream all stores that offer the ice cream will be listed
+
+10) -Feature: Choose amount of ice cream
+	As a registered user
+	So that I can choose the amount of ice cream
+	If I am at the store avaliableList I can choose the amount of ice cream I want
+

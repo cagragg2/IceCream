@@ -7,7 +7,7 @@ urlpatterns = patterns('',
 
 	#url(r'^(?P<iceCreamID>\d+)/$', views.detail, name='detail'),
 
-	url(r'^index/$', views.login, name='login'),
+	#url(r'^index/$', views.login, name='login'),
 
 	url(r'^successLogin/$', views.successLogin, name='successLogin'),
 	url(r'^failureLogin/$', views.failureLogin, name='failureLogin'),
@@ -20,5 +20,7 @@ urlpatterns = patterns('',
 	url(r'^main/$', views.main, name = 'main'),
 	url(r'^stores/$', views.stores, name = 'stores'),
 	url(r'^select/$', views.select, name = 'select'),
-	url(r'^warning/$', views.warning, name = 'warning')
+	url(r'^warning/$', views.warning, name = 'warning'),
+	url(r'^index/$', 'django.contrib.auth.views.login',name="my_login"),
+	url(r'^signUp/$',views.signUp, name = 'sigUp'),
 )

@@ -8,10 +8,6 @@
 ===============================================================
 -->
 
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <!--<![endif]-->
 <html lang="en">
 <head>
 	<!-- Basic Page Needs
@@ -30,9 +26,6 @@
 	<link rel="stylesheet" href="./stylesheets/skeleton.css">
 	<link rel="stylesheet" href="./stylesheets/layout.css">
 
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
 
     <!-- jQuery Below
    ================================================== -->
@@ -59,6 +52,21 @@
     });
     </script>
 
+    <style>
+    a:link{ color: #5C3B19; text-decoration: none;}
+    a:visited { color: #37230F; text-decoration: none;}
+    a:hover { color: #663300; text-decoration: none;}
+    #back {
+        padding: 10px 0 10px 25px;
+        background-color: #999999;
+        font-weight: bold;
+    }
+    .container2 {
+        background-color: #009999;
+    }
+    </style>
+
+
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="images/favicon.ico">
@@ -66,29 +74,26 @@
 	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 </head>
-<body bgcolor="#999999">
+<body bgcolor="#CACABC">
 	<!-- Primary Page Layout
 	================================================== -->
 
-	<!-- Delete everything in this .container and get started on your own site! -->
 
     <!-- Navagation -->
-    <div id="back"><a href="/IceCreamVendingMachine/">Login</a>  |  <a href="./request.html">Request</a></div>
+    <div id="back"><a href="/IceCreamVendingMachine/">Home</a></div>
 
 	<div class="container2" style="padding: 55px;">
         <h1>Your receipt below</h1><br>
 	   ---------------------------------------------------- <br>
-	   Name&emsp;&emsp;&emsp;&emsp;&emsp;Price:
+	   Name &emsp;&emsp;&emsp;&emsp;&emsp; Price:
 		<br>
 		<!-- Below this line is dynamically created by Django -->
-	{% for i, j in data %}
-		<h3>
-	{{ i.flavor }}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ j.price}} $
-
-		</h3>
+	    {% for i, j in data %}
+		
+        <h3>{{ i.flavor }}: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{ j.price}} $ </h3>
 		<br>
  		
-	{% endfor %}
+	    {% endfor %}
    
 	   <br><p>
 	   

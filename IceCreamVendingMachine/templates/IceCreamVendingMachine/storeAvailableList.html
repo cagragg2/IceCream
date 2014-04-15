@@ -87,15 +87,17 @@
 		<br>
 		<!-- Below this line is dynamically created by Django -->
 
+<form method="post" action="{% url 'IceCreamVendingMachine.views.index' %}" align="middle">
 		<table>
 		{% for i, j in data %}
 			<tr>
                 <td> <img src="http://i1155.photobucket.com/albums/p544/bleakthecat420/icon_zpsa9a2d352.png" width="50px"></td>
 				<td> <a href="/IceCreamVendingMachine/{{ i.iceCreamID }}/successBuy">{{ i }}</a>: </td>
-				<td> {{ j.price }} $</td>
+				<td> {{ j.price }} $    <br></td>
 			</tr>
 		{% endfor %}
-		</table>
+Quantity: <input type="text" name="quantity" value="">
+		</table> </form>
 
     	</div><!-- container -->
 

@@ -1,3 +1,4 @@
+
 <!doctype html>
 
 <!-- 
@@ -81,7 +82,7 @@
     <!-- Navagation -->
     <div id="back"><a href="/IceCreamVendingMachine/">Home</a></div>
 
-	<div class="container2" style="padding: 55px;">
+<!--	<div class="container2" style="padding: 55px;">
     
     <h3>Login</h3>
 
@@ -97,6 +98,20 @@
 
         </div><!-- container -->
 
+
+	<div class="container2" style="padding: 55px;">
+
+      <center><h1>Log in</h1></center>
+
+      <form method="post" action="{% url 'IceCreamVendingMachine.views.index' %}" align="middle">
+      {% csrf_token %} 
+      Username: <input type="text" name="username" value=""><br>
+      Password: <input type="password" name="password" value=""><br>
+      <input type="submit" value="Login">
+      </form>
+<button onclick="window.location.href='/IceCreamVendingMachine/signUp/'">Sign Up</button>
+
+    </div> <!-- /container -->
 
     <!-- JS
     ================================================== -->

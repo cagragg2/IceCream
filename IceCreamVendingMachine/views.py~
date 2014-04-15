@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from IceCreamVendingMachine.models import IceCream
-from IceCreamVendingMachine.models import WhereIceCreamOffered
 from IceCreamVendingMachine.models import Stores
 
 # Create your views here.

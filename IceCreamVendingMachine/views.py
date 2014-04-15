@@ -12,8 +12,8 @@ def index(request):
 	context = RequestContext(request, { 'all_icecreams': all_icecreams,})
 	return HttpResponse(template.render(context))
 
-def detail(request, iceCreamID):
-    return HttpResponse("You're looking at poll %s." % iceCreamID)
+#def detail(request, iceCreamID):
+#    return HttpResponse("You're looking at poll %s." % iceCreamID)
 
 def login(request):
 	return render(request, 'IceCreamVendingMachine/index.html')
@@ -44,8 +44,10 @@ def storeList(request, iceCreamID):
 	context = { 'current_Stores': current_Stores }
 	return render(request, 'IceCreamVendingMachine/storeList.html', context)
 	
-def successBuy(request):
-	return render(request, 'IceCreamVendingMachine/successBuy.html')
+def successBuy(request, iceCreamID):
+	chosen_ice_cream = iceCreamID
+	context = { 'chosen_ice_cream': chosen_ice_cream }
+	return render(request, 'IceCreamVendingMachine/successBuy.html', context)
 
 def successLogin(request):
 	return render(request, 'IceCreamVendingMachine/successLogin.html')

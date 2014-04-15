@@ -17,7 +17,7 @@
 	<!-- Basic Page Needs
    ================================================== -->
 	<meta charset="utf-8">
-	<title>Ice Cream Machine | Success Buy </title>
+	<title>Ice Cream Machine | List of Items Available </title>
     <link rel="shortcut icon" href="./images/favicon.ico"> 
 
 	<!-- Mobile Specific Metas
@@ -59,19 +59,6 @@
     });
     </script>
 
-
-<script type="text/javascript">
-<!--
-function Redirect()
-{
-
-    window.location.pathname="IceCreamVendingMachine/{{ chosen_ice_cream }}/receipt";
-}
-setTimeout('Redirect()', 5000);
-//-->
-</script>
-
-
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="images/favicon.ico">
@@ -86,14 +73,22 @@ setTimeout('Redirect()', 5000);
 	<!-- Delete everything in this .container and get started on your own site! -->
 
     <!-- Navagation -->
-    <div id="back"><a href="./index.html">Login</a>  |  <a href="./request.html">Request</a></div>
+    <div id="back"><a href="/IceCreamVendingMachine/index.html">Login</a>  |  <a href="./request.html">Request</a></div>
 
 	<div class="container2" style="padding: 55px;">
-        <h1>Success!</h1><br>
-	   Transaction was done without problems.<br><p>
-	   <strong>You will be Redirected in 5 seconds.</strong>
+     		<h1>List of items in { object.storeName }</h1>
+		<br>
+		<!-- Below this line is dynamically created by Django -->
+	{% for object in all_items_in_store %}
+		<h3>
+ <li><a href="/IceCreamVendingMachine/{{ object.iceCreamID }}/sucessBuy">{{ object.flavor }}</a></li>
 
-    </div><!-- container -->
+		</h3>
+		<br>
+ 		
+	{% endfor %}
+   
+    	</div><!-- container -->
 
     <!-- JS
     ================================================== -->

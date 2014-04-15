@@ -65,7 +65,7 @@
 function Redirect()
 {
 
-    window.location.pathname="IceCreamVendingMachine/{{ chosen_ice_cream }}/receipt";
+    window.location.pathname="IceCreamVendingMachine/{ chosen_ice_cream }/receipt";
 }
 setTimeout('Redirect()', 5000);
 //-->

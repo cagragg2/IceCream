@@ -17,7 +17,7 @@
 	<!-- Basic Page Needs
    ================================================== -->
 	<meta charset="utf-8">
-	<title>Ice Cream Machine | Success Buy </title>
+	<title>Ice Cream Machine | Login </title>
     <link rel="shortcut icon" href="./images/favicon.ico"> 
 
 	<!-- Mobile Specific Metas
@@ -59,19 +59,6 @@
     });
     </script>
 
-
-<script type="text/javascript">
-<!--
-function Redirect()
-{
-
-    window.location.pathname="IceCreamVendingMachine/{{ chosen_ice_cream }}/receipt";
-}
-setTimeout('Redirect()', 5000);
-//-->
-</script>
-
-
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="images/favicon.ico">
@@ -89,10 +76,20 @@ setTimeout('Redirect()', 5000);
     <div id="back"><a href="./index.html">Login</a>  |  <a href="./request.html">Request</a></div>
 
 	<div class="container2" style="padding: 55px;">
-        <h1>Success!</h1><br>
-	   Transaction was done without problems.<br><p>
-	   <strong>You will be Redirected in 5 seconds.</strong>
+        <h1><font color= "black">Ice Cream Vending Machine Login</font></h1>
 
+
+        <form>
+            Username : <input type="text" name="username" id="username"><br>
+            Password : <input type="password" name="pwd" id="pwd">
+        </form>
+
+        
+
+        <button type="button" onclick="window.location.href='iceCreamList';"/>Submit</button>
+        <button type="button" onclick="alert('Not Currently Available')"/>Register</button>
+
+	
     </div><!-- container -->
 
     <!-- JS

@@ -58,7 +58,6 @@ def iceCreamList(request):
 def receipt(request, iceCreamID):
 	chosenIceCream = IceCream.objects.filter(iceCreamID = iceCreamID)
 	chosenIceCreamPrice = WhereOffAmounts.objects.filter(icecream = iceCreamID)
-	#context = { 'chosenIceCream': chosenIceCream }
 	context = { 'data': zip(chosenIceCream, chosenIceCreamPrice) }
 	return render(request, 'IceCreamVendingMachine/receipt.html', context)
 	

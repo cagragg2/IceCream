@@ -8,10 +8,6 @@
 ===============================================================
 -->
 
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <!--<![endif]-->
 <html lang="en">
 <head>
 	<!-- Basic Page Needs
@@ -30,9 +26,6 @@
 	<link rel="stylesheet" href="./stylesheets/skeleton.css">
 	<link rel="stylesheet" href="./stylesheets/layout.css">
 
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
 
     <!-- jQuery Below
    ================================================== -->
@@ -60,16 +53,27 @@
     </script>
 
 
-<script type="text/javascript">
-<!--
-function Redirect()
-{
+    <script type="text/javascript">
+    function Redirect()
+    {
+        window.location.pathname="IceCreamVendingMachine/{{ chosen_ice_cream }}/receipt";
+    }
+    setTimeout('Redirect()', 2000);
+    </script>
 
-    window.location.pathname="IceCreamVendingMachine/{{ chosen_ice_cream }}/receipt";
-}
-setTimeout('Redirect()', 2000);
-//-->
-</script>
+    <style>
+    a:link{ color: #5C3B19; text-decoration: none;}
+    a:visited { color: #37230F; text-decoration: none;}
+    a:hover { color: #663300; text-decoration: none;}
+    #back {
+        padding: 10px 0 10px 25px;
+        background-color: #999999;
+        font-weight: bold;
+    }
+    .container2 {
+        background-color: #009999;
+    }
+    </style>
 
 
 	<!-- Favicons
@@ -79,21 +83,20 @@ setTimeout('Redirect()', 2000);
 	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 </head>
-<body bgcolor="#999999">
+<body bgcolor="#CACABC">
 	<!-- Primary Page Layout
 	================================================== -->
 
-	<!-- Delete everything in this .container and get started on your own site! -->
 
     <!-- Navagation -->
-    <div id="back"><a href="./index.html">Login</a>  |  <a href="./request.html">Request</a></div>
+    <div id="back"><a href="/IceCreamVendingMachine/">Home</a></div>
 
 	<div class="container2" style="padding: 55px;">
         <h1>Success!</h1><br>
-	   Transaction was done without problems.<br><p>
-	   <strong>You will be Redirected in 5 seconds.</strong>
+	    Transaction was done without problems.<br><p>
+	    <strong>You will be Redirected in 5 seconds.</strong>
 
-    </div><!-- container -->
+        </div><!-- container -->
 
     <!-- JS
     ================================================== -->

@@ -13,7 +13,7 @@
 	<!-- Basic Page Needs
    ================================================== -->
 	<meta charset="utf-8">
-	<title>Ice Cream Machine | Login </title>
+	<title>Ice Cream Machine | Success Buy </title>
     <link rel="shortcut icon" href="./images/favicon.ico"> 
 
 	<!-- Mobile Specific Metas
@@ -52,6 +52,15 @@
     });
     </script>
 
+
+    <script type="text/javascript">
+    function Redirect()
+    {
+        window.location.pathname="IceCreamVendingMachine/{{ chosen_ice_cream }}/receipt";
+    }
+    setTimeout('Redirect()', 2000);
+    </script>
+
     <style>
     a:link{ color: #5C3B19; text-decoration: none;}
     a:visited { color: #37230F; text-decoration: none;}
@@ -66,6 +75,7 @@
     }
     </style>
 
+
 	<!-- Favicons
 	================================================== -->
 	<link rel="shortcut icon" href="images/favicon.ico">
@@ -79,24 +89,14 @@
 
 
     <!-- Navagation -->
-    <div id="back"><a href="/IceCreamVendingMachine/">Home</a></div>
+    <div id="back"><a href="/IceCreamVendingMachine/">Login</a></div>
 
 	<div class="container2" style="padding: 55px;">
-    
-    <h3>Login</h3>
+        <h1>Success!</h1><br>
+	    Transaction was done without problems.<br><p>
+	    <strong>You will be Redirected in 5 seconds.</strong>
 
-	<div class="controls">
-		<input type="text" id="username" name="username" placeholder="Username">
-	</div>
-
-	<div class="controls">
-		<input type="text" id="password" name="password" placeholder="Password">
-	</div>
-
-	<button onclick="window.location.href='/IceCreamVendingMachine/warning/'">Submit</button>
-
-        </div><!-- container -->
-
+    </div><!-- container -->
 
     <!-- JS
     ================================================== -->

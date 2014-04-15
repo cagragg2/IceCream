@@ -25,7 +25,7 @@ def index(request):
 	#return render_to_response('index.html', context_instance=RequestContext(request))
 	return render( request, 'IceCreamVendingMachine/index.html')
 
-@login_required(login_url='/IceCreamVendingMachine/index')
+#@login_required(login_url='/IceCreamVendingMachine/index')
 
 #def login(request):
 #	return render(request, 'IceCreamVendingMachine/index.html')

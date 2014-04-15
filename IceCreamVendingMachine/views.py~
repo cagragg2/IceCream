@@ -25,7 +25,7 @@ def index(request):
 	#return render_to_response('index.html', context_instance=RequestContext(request))
 	return render( request, 'IceCreamVendingMachine/index.html')
 
-@login_required(login_url='/IceCreamVendingMachine/index')
+#@login_required(login_url='/IceCreamVendingMachine/index')
 
 #def login(request):
 #	return render(request, 'IceCreamVendingMachine/index.html')
@@ -64,8 +64,9 @@ def receipt(request, iceCreamID):
 	
 def storeAvailableList(request, iceCreamID):
 	all_items_in_store = IceCream.objects.filter(whereoffamounts__stores = iceCreamID)
+	store_chosen = Stores.objects.filter(storeID = iceCreamID)
 	amount_of_items = WhereOffAmounts.objects.filter(stores = iceCreamID)
-	context = { 'data' : zip(all_items_in_store, amount_of_items) }
+	context = { 'data' : zip(all_items_in_store, amount_of_items), 'store_chosen': store_chosen }
 	return render(request, 'IceCreamVendingMachine/storeAvailableList.html',context)
 
 def storeList(request, iceCreamID):

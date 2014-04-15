@@ -82,7 +82,7 @@
 		<!-- Below this line is dynamically created by Django -->
     <ul>
 
-	Shop by <a href = "/IceCreamVendingMachine/iceCreamList">store</a>
+	Shop by <a href = "/IceCreamVendingMachine/stores/">store</a>
 
 	<br>
 	<br>

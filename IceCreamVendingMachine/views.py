@@ -14,14 +14,14 @@ from IceCreamVendingMachine.models import Users
 def index(request):
 	#users = Users.objects
 	#context = { 'data': users }
-	username = password = ''
-	if request.POST:
-	    username = request.POST['username']
-	    password = request.POST['password']
-	    user = authenticate(username=username, password=password)
-  	    if user is not None:
+	#username = password = ''
+	#if request.POST:
+	 #   username = request.POST['username']
+	  #  password = request.POST['password']
+	 #   user = authenticate(username=username, password=password)
+  	 #   if user is not None:
 		#login(request, user)
-		return HttpResponseRedirect('/iceCreamList/')
+	#	return HttpResponseRedirect('/iceCreamList/')
 	#return render_to_response('index.html', context_instance=RequestContext(request))
 	return render( request, 'IceCreamVendingMachine/index.html')
 
@@ -58,7 +58,6 @@ def iceCreamList(request):
 def receipt(request, iceCreamID):
 	chosenIceCream = IceCream.objects.filter(iceCreamID = iceCreamID)
 	chosenIceCreamPrice = WhereOffAmounts.objects.filter(icecream = iceCreamID)
-	#context = { 'chosenIceCream': chosenIceCream }
 	context = { 'data': zip(chosenIceCream, chosenIceCreamPrice) }
 	return render(request, 'IceCreamVendingMachine/receipt.html', context)
 	

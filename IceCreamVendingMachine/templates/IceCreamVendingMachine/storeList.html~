@@ -76,7 +76,7 @@
     <div id="back"><a href="/IceCreamVendingMachine/index">Login</a>  |  <a href="./request.html">Request</a></div>
 
 	<div class="container2" style="padding: 55px;">
-     		<h1>List of Stores that carry {{ current_icecream.flavor }}</h1>
+     		<h1>List of Stores that carry  {% for ice in current_icecream %}{{ ice.flavor }}     {% endfor %}</h1>
 		<br>
 		<!-- Below this line is dynamically created by Django -->
 	{% if current_Stores %}

@@ -76,7 +76,7 @@
     <div id="back"> <a href="./index.html">Login</a>  |  <a href="./request.html">Request</a></div>
 
 	<div class="container2" style="padding: 55px;">
-     		<h1><font face = "Lucida Console" color = "red"> Stores</font></h1>
+     		<h1><font face = "Lucida Console" color = "green"> Stores</font></h1>
 		
 		<br>
 		<!-- Below this line is dynamically created by Django -->

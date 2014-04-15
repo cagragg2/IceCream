@@ -76,7 +76,7 @@
     <div id="back"><a href="/IceCreamVendingMachine/index">Login</a>  |  <a href="./request.html">Request</a></div>
 
 	<div class="container2" style="padding: 55px;">
-     		<h1>List of items in {{ object.storeName }}</h1>
+     		<h1>List of items in {% for store in store_chosen %}{{ store.storeName }}     {% endfor %}</h1>
 		<br>
 		<!-- Below this line is dynamically created by Django -->
 

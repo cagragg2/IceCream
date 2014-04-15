@@ -73,8 +73,8 @@
 	<!-- Delete everything in this .container and get started on your own site! -->
 
     <!-- Navagation -->
-    <div id="back"><a href="./index.html">Login</a>  |  <a href="./request.html">Request</a></div>
-
+    <div id="back"><a href="/IceCreamVendingMachine/index/">Login</a>  |  <a href="./request.html">Request</a></div>
+<!--
 	<div class="container2" style="padding: 55px;">
         <h1><font color= "black">Ice Cream Vending Machine Login</font></h1>
 	{% block main %}
@@ -103,10 +103,20 @@
 		</div>
 
 		</form>
-	</div>
-	{% endblock %}
+	</div> 
+	{% endblock %} 
 	
     </div><!-- container -->
+
+	<div class="controls">
+		<input type="text" id="username" name="username" placeholder="Username">
+	</div>
+
+	<div class="controls">
+		<input type="text" id="password" name="password" placeholder="Password">
+	</div>
+
+	<button onclick="window.location.href='/IceCreamVendingMachine/main/'">Submit</button>
 
     <!-- JS
     ================================================== -->

@@ -19,5 +19,6 @@ urlpatterns = patterns('',
 	url(r'^(?P<iceCreamID>\d+)/receipt/$', views.receipt, name='receipt'),
 	url(r'^main/$', views.main, name = 'main'),
 	url(r'^stores/$', views.stores, name = 'stores'),
-	url(r'^select/$', views.select, name = 'select')
+	url(r'^select/$', views.select, name = 'select'),
+	url(r'^warning/$', views.warning, name = 'warning')
 )

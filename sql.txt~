@@ -1,0 +1,30 @@
+SQL calls
+
+1) all_icecreams = IceCream.objects.order_by('-flavor')
+
+	SELECT *
+	FROM IceCream
+	ORDER BY flavor
+
+2) chosenIceCream = IceCream.objects.filter(iceCreamID = iceCreamID)
+
+	SELECT *
+	FROM IceCream
+	WHERE "the chosen ice cream" = iceCreamID
+
+3) all_items_in_store = IceCream.objects.filter(whereoffamounts__stores = iceCreamID)
+
+	SELECT *
+	FROM IceCream naturalJoin WhereOffAmounts
+	WHERE "the chosen store" = storeID
+
+4) current_Stores = Stores.objects.filter(whereoffamounts__icecream = iceCreamID)
+
+	SELECT *
+	FROM Stores naturalJoin WhereOffAmounts
+	WHERE "the chosen ice cream" = iceCreamID
+	
+
+
+
+

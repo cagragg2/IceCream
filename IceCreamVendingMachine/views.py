@@ -82,4 +82,6 @@ def successBuy(request, iceCreamID):
 def successLogin(request):
 	return render(request, 'IceCreamVendingMachine/successLogin.html')
 
+def warning(request):
+	return render(request, 'IceCreamVendingMachine/warning.html')
 

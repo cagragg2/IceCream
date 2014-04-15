@@ -1,0 +1,98 @@
+--In Main--
+
+django:
+ice_creams = WhereOffAmounts.objects.filter(stores = 6)
+
+sql:
+	SELECT *
+	FROM WhereOffAmounts
+	WHERE storeID = 6
+
+django:
+IDs = IceCream.objects.filter(whereoffamounts__stores = 6)
+
+sql:
+	
+	SELECT iceCreamID
+	FROM WhereOffAmounts, IceCream
+	Where storeId = 6
+
+--In Stores--
+
+django:
+storechosen = Stores.objects.order_by('storeName')
+
+sql:
+	SELECT storeName
+	FROM Stores
+
+--IceCreamList--
+
+django:
+all_icecreams = IceCream.objects.order_by('flavor')
+
+sql:
+	SELECT flavor
+	FROM IceCream
+
+--In Receipt--
+
+django:
+chosenIceCream = IceCream.objects.filter(iceCreamID = iceCreamID)
+
+sql:
+	SELECT *
+	FROM IceCream
+	WHERE "returned id" = iceCreamID
+
+django:
+chosenIceCreamPrice = WhereOffAmounts.objects.filter(icecream = iceCreamID)
+
+sql:
+	SELECT *
+	FROM WhereOffAmounts
+	WHERE "returned id" = iceCreamID
+
+--In StoreAvaliableList--
+
+django:
+all_items_in_store = IceCream.objects.filter(whereoffamounts__stores = storeID)
+
+sql:
+	SELECT *
+	FROM IceCream,WhereOffAmounts
+	WHERE "returned Id" = storeID
+
+django:
+store_chosen = Stores.objects.filter(storeID = storeID)
+
+sql:
+	SELECT *
+	FROM Stores
+	WHERE "returned Id" = storeID
+
+django:
+amount_of_items = WhereOffAmounts.objects.filter(stores = storeID)
+
+sql:
+	SELECT *
+	FROM WhereOffAmounts
+	WHERE "returned id" = storeID
+
+--In Store List--
+
+django:
+current_Stores = Stores.objects.filter(whereoffamounts__icecream = iceCreamID)
+
+sql:
+	SELECT *
+	FROM Stores, WhereOffAmounts
+	WHERE "returned id" = iceCreamID
+
+django:
+current_icecream = IceCream.objects.filter(iceCreamID = iceCreamID)
+
+sql:
+	SELECT *
+	FROM IceCream
+	WHERE "returned id" = iceCream ID

@@ -1,24 +1,49 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, render_to_response,redirect
+from django.http import *
 from django.template import RequestContext, loader
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+
 from IceCreamVendingMachine.models import IceCream
 from IceCreamVendingMachine.models import Stores
 from IceCreamVendingMachine.models import WhereOffAmounts
+from IceCreamVendingMachine.models import Users
 
 # Create your views here.
 
 def index(request):
-	all_icecreams = IceCream.objects.order_by('-flavor')
-	template = loader.get_template('IceCreamVendingMachine/index.html')
-	context = RequestContext(request, { 'all_icecreams': all_icecreams,})
-	return HttpResponse(template.render(context))
+	#users = Users.objects
+	#context = { 'data': users }
+	username = password = ''
+	if request.POST:
+	    username = request.POST['username']
+	    password = request.POST['password']
+	    user = authenticate(username=username, password=password)
+  	    if user is not None:
+		#login(request, user)
+		return HttpResponseRedirect('/iceCreamList/')
+	#return render_to_response('index.html', context_instance=RequestContext(request))
+	return render( request, 'IceCreamVendingMachine/index.html')
 
-#def detail(request, iceCreamID):
-#    return HttpResponse("You're looking at poll %s." % iceCreamID)
+@login_required(login_url='/IceCreamVendingMachine/index')
 
-def login(request):
-	return render(request, 'IceCreamVendingMachine/index.html')
+#def login(request):
+#	return render(request, 'IceCreamVendingMachine/index.html')
 	
+def main(request):
+	ice_creams = WhereOffAmounts.objects.filter(stores = 6)
+	IDs = IceCream.objects.filter(whereoffamounts__stores = 6)
+	context = { 'data': zip(ice_creams, IDs) }
+	return render(request, 'IceCreamVendingMachine/main.html', context)
+
+def stores(request):
+	storechosen = Stores.objects.order_by('-storeName')
+	context = { 'data': storechosen }
+	return render(request, 'IceCreamVendingMachine/stores.html', context)
+
+def select(request):
+	return render(request, 'IceCreamVendingMachine/select.html')
+
 def failureBuy(request):
 	return render(request, 'IceCreamVendingMachine/failureBuy.html')
 
@@ -32,18 +57,21 @@ def iceCreamList(request):
 
 def receipt(request, iceCreamID):
 	chosenIceCream = IceCream.objects.filter(iceCreamID = iceCreamID)
-	context = { 'chosenIceCream': chosenIceCream }
+	chosenIceCreamPrice = WhereOffAmounts.objects.filter(icecream = iceCreamID)
+	#context = { 'chosenIceCream': chosenIceCream }
+	context = { 'data': zip(chosenIceCream, chosenIceCreamPrice) }
 	return render(request, 'IceCreamVendingMachine/receipt.html', context)
 	
 def storeAvailableList(request, iceCreamID):
 	all_items_in_store = IceCream.objects.filter(whereoffamounts__stores = iceCreamID)
-	amount_of_items = WhereOffAmounts.objects.filter(store = iceCreamID)
-	context = { 'all_items_in_store': all_items_in_store, 'amount_of_items': amount_of_items }
+	amount_of_items = WhereOffAmounts.objects.filter(stores = iceCreamID)
+	context = { 'data' : zip(all_items_in_store, amount_of_items) }
 	return render(request, 'IceCreamVendingMachine/storeAvailableList.html',context)
 
 def storeList(request, iceCreamID):
 	current_Stores = Stores.objects.filter(whereoffamounts__icecream = iceCreamID)
-	context = { 'current_Stores': current_Stores }
+	current_icecream = IceCream.objects.filter(iceCreamID = iceCreamID)
+	context = { 'current_Stores': current_Stores, 'ID': iceCreamID, 'current_icecream': current_icecream }
 	return render(request, 'IceCreamVendingMachine/storeList.html', context)
 	
 def successBuy(request, iceCreamID):

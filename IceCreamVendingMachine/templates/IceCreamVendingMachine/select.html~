@@ -76,17 +76,18 @@
     <div id="back"> <a href="./index.html">Login</a>  |  <a href="./request.html">Request</a></div>
 
 	<div class="container2" style="padding: 55px;">
-     		<h1>Ice Cream Vending Machine			</h1>
-		<h2> List of Ice Creams in Machine </h2>
+     		<h1>Selection			</h1>
 		
 		<br>
 		<!-- Below this line is dynamically created by Django -->
     <ul>
-	{% for object,j in data %}
-        <li><a href="/IceCreamVendingMachine/{{ j.iceCreamID }}/receipt/">{{ object.icecream }}</a> </li>
-	{% endfor %}
 
-	Can't find the ice cream your looking for?  <a href = "/IceCreamVendingMachine/select/">Click Here.</a>
+	Shop by <a href = "/IceCreamVendingMachine/iceCreamList">store</a>
+
+	<br>
+	<br>
+	
+	Shop by <a href = "/IceCreamVendingMachine/iceCreamList">ice cream</a>
     </ul>
 
    

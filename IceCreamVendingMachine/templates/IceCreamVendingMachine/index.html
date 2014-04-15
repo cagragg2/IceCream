@@ -77,18 +77,34 @@
 
 	<div class="container2" style="padding: 55px;">
         <h1><font color= "black">Ice Cream Vending Machine Login</font></h1>
+	{% block main %}
+	<div id="login">
+		<form name="LoginForm" action="/login" method="post">
+		{% csrf_token %}
+		{% if next %}
+			<input type="hidden" name="next" value="{{ next }}" />
+		{% endif %}
+		<div class="control-group">
+			<label class="control-label" for="username">Username</label>
+			<div class="controls">
+				<input type="text" id="username" name="username" placeholder="Username">
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="password">Password</label>
+			<div class="controls">
+				<input type="text" id="password" name="password" placeholder="Password">
+			</div>
+		</div>
+		<div class="control=group">
+			<div class="controls">
+				<button type="sumbit" class="btn">Login</button>
+			</div>		
+		</div>
 
-
-        <form>
-            Username : <input type="text" name="username" id="username"><br>
-            Password : <input type="password" name="pwd" id="pwd">
-        </form>
-
-        
-
-        <button type="button" onclick="window.location.href='successLogin';"/>Submit</button>
-        <button type="button" onclick="alert('Not Currently Available')"/>Register</button>
-
+		</form>
+	</div>
+	{% endblock %}
 	
     </div><!-- container -->
 

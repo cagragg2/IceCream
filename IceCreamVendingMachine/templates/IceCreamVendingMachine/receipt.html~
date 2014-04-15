@@ -17,7 +17,7 @@
 	<!-- Basic Page Needs
    ================================================== -->
 	<meta charset="utf-8">
-	<title>Ice Cream Machine | List of Items Available </title>
+	<title>Ice Cream Machine | Sales Receipt </title>
     <link rel="shortcut icon" href="./images/favicon.ico"> 
 
 	<!-- Mobile Specific Metas
@@ -76,26 +76,23 @@
     <div id="back"><a href="/IceCreamVendingMachine/index">Login</a>  |  <a href="./request.html">Request</a></div>
 
 	<div class="container2" style="padding: 55px;">
-     		<h1>List of items in {% for store in store_chosen %}{{ store.storeName }}     {% endfor %}</h1>
+        <h1>Your receipt below</h1><br>
+	   ---------------------------------------------------- <br>
+	   Name&emsp;&emsp;&emsp;&emsp;&emsp;Price:
 		<br>
 		<!-- Below this line is dynamically created by Django -->
+	{% for i, j in data %}
+		<h3>
+	{{ i.flavor }}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ j.price}} $
 
-		<table>
-		{% for i, j in data %}
-			<tr>
-				<td> <a href="/IceCreamVendingMachine/{{ i.iceCreamID }}/successBuy">{{ i }}</a>: </td>
-				<td> {{ j.price }} $</td>
-			</tr>
-		{% endfor %}
-		</table>
-
-
-
+		</h3>
 		<br>
  		
-
+	{% endfor %}
    
-    	</div><!-- container -->
+	   <br><p>
+	   
+    </div><!-- container -->
 
     <!-- JS
     ================================================== -->

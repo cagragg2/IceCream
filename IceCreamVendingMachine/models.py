@@ -50,3 +50,8 @@ class WhereOffAmounts(models.Model):
 	quantity = models.IntegerField(default=0)
 	price = models.FloatField(default=0)
 
+class Users(models.Model):
+	userName = models.CharField(max_length=20)
+	userName.primary_key = True
+	password = models.CharField(max_length=20)
+

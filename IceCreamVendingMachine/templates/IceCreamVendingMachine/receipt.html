@@ -77,14 +77,13 @@
 
 	<div class="container2" style="padding: 55px;">
         <h1>Your receipt below</h1><br>
-	   ----------------------------------------------------
-	   Ice Cream Name                         Price:
+	   ---------------------------------------------------- <br>
+	   Name&emsp;&emsp;&emsp;&emsp;&emsp;Price:
 		<br>
 		<!-- Below this line is dynamically created by Django -->
-	{% for object in chosenIceCream %}
+	{% for i, j in data %}
 		<h3>
-	{{ object.flavor }}           0.00$
-	total: 0.00$
+	{{ i.flavor }}:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ j.price}} $
 
 		</h3>
 		<br>
@@ -94,6 +93,8 @@
 	   <br><p>
 	   
     </div><!-- container -->
+
+	<button onclick="window.location.href='/IceCreamVendingMachine/main'">Done</button>
 
     <!-- JS
     ================================================== -->

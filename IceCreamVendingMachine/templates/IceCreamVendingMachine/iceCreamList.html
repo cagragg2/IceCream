@@ -1,0 +1,105 @@
+<!doctype html>
+
+<!-- 
+===============================================================
+ Author: Caleb Gragg
+ Author: Snow Carrion
+ Date: 2/18/2014
+===============================================================
+-->
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <!--<![endif]-->
+<html lang="en">
+<head>
+	<!-- Basic Page Needs
+   ================================================== -->
+	<meta charset="utf-8">
+	<title>Ice Cream Machine | List of Ice Cream </title>
+    <link rel="shortcut icon" href="./images/favicon.ico"> 
+
+	<!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+   ================================================== -->
+	<link rel="stylesheet" href="./stylesheets/base.css">
+	<link rel="stylesheet" href="./stylesheets/skeleton.css">
+	<link rel="stylesheet" href="./stylesheets/layout.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+    <!-- jQuery Below
+   ================================================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script src="./scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    
+    <!-- Page Transitions 
+   ================================================== -->
+    <script>
+    $(document).ready(function(){
+            $("body").css("display", "none");
+            $("body").fadeIn(1000);
+            
+            $("a.transition").click(function(event){
+                event.preventDefault();
+                linkLocation = this.href;
+                $("body").fadeOut(500, redirectPage);      
+            });     
+            
+            function redirectPage() {
+                window.location = linkLocation;
+            }
+    });
+    </script>
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+</head>
+<body bgcolor="#999999">
+	<!-- Primary Page Layout
+	================================================== -->
+
+	<!-- Delete everything in this .container and get started on your own site! -->
+
+    <!-- Navagation -->
+    <div id="back"> <a href="./index.html">Login</a>  |  <a href="./request.html">Request</a></div>
+
+	<div class="container2" style="padding: 55px;">
+     		<h1>List of All Ice Creams and Snow Cones Available			</h1>
+		<br>
+		<!-- Below this line is dynamically created by Django -->
+
+	{% if all_icecreams %}
+    <ul>
+    {% for ice_cream in all_icecreams %}
+        <li><a href="/IceCreamVendingMachine/{{ ice_cream.iceCreamID }}/storeList">{{ ice_cream.flavor }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No ice creams are available.</p>
+{% endif %}
+   
+    	</div><!-- container -->
+
+    <!-- JS
+    ================================================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+    <script>window.jQuery || document.write("<script src='javascripts/jquery-1.5.1.min.js'>\x3C/script>")<script>
+    <script src="javascripts/app.js"></script>
+
+
+<!-- End Document
+================================================== -->
+</body>
+</html>
